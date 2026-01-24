@@ -15,11 +15,14 @@ public class Exercicio2 {
     public static void main(String [] args) {
 
         //Declara as variaveis e atribui os valores
-        int num1 = 9;
-        int num2 = 4;
+        double num1 = 9;
+        double num2 = 4;
 
         //Chama o método e passa os parametros
-        calcula(num1, num2);
+        Resultado resultado = calcula(num1, num2);
+
+        //Chama o método de imprimir e passa os parametros
+        imprimir(resultado);
 
     }
 
@@ -29,18 +32,15 @@ public class Exercicio2 {
      * @param primeiro
      * @param segundo
      */
-    public static void calcula(int primeiro, int segundo){
+    public static Resultado calcula(double primeiro, double segundo){
         //Declara as variaveis e atribui os valores vindos por parametros e sendo calculados
-        int soma = primeiro + segundo;
-        int subtracao = primeiro - segundo;
-        int divisao = primeiro / segundo;
-        int multiplicacao = primeiro * segundo;
+        double soma = primeiro + segundo;
+        double subtracao = primeiro - segundo;
+        double divisao = primeiro / segundo;
+        double multiplicacao = primeiro * segundo;
 
         //Cria um record somente para fins de aprendizado de como utilizar um record
-        Resultado resultado = new Resultado(primeiro, segundo, soma, subtracao, multiplicacao, divisao);
-
-        //Chama o método de imprimir e passa os parametros
-        imprimir(resultado);
+        return new Resultado(primeiro, segundo, soma, subtracao, multiplicacao, divisao);
     }
 
     //Declara o método de imprimir e seus parametros esperados
@@ -53,5 +53,5 @@ public class Exercicio2 {
         System.out.println("Multiplicação = "+ resultado.multiplicacao);
     };
 
-    public record Resultado(int primeiro, int segundo, int soma, int subtracao, int multiplicacao, int divisao){}
+    public record Resultado(double primeiro, double segundo, double soma, double subtracao, double multiplicacao, double divisao){}
 }
